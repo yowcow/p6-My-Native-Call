@@ -1,26 +1,6 @@
-NAME
-====
+[![Build Status](https://travis-ci.org/yowcow/p6-My-Native-Call.svg?branch=master)](https://travis-ci.org/yowcow/p6-My-Native-Call)
 
-My::Native::Call - blah blah blah
+Native Callin Interface
+=======================
 
-SYNOPSIS
-========
-
-    use My::Native::Call;
-
-DESCRIPTION
-===========
-
-My::Native::Call is ...
-
-AUTHOR
-======
-
-yowcow <yowcow@cpan.org>
-
-COPYRIGHT AND LICENSE
-=====================
-
-Copyright 2016 yowcow
-
-This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+Learning how Perl 6's native calling interface can be used.
