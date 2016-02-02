@@ -2,7 +2,9 @@
   "name" : "My::Native::Call",
   "source-url" : "",
   "perl" : "6.c",
-  "resources" : [ ],
+  "resources" : [
+    "libfoo.so"
+  ],
   "build-depends" : [ ],
   "provides" : {
     "My::Native::Call" : "lib/My/Native/Call.pm6"
