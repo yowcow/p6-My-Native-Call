@@ -1,0 +1,19 @@
+{
+  "name" : "My::Native::Call",
+  "source-url" : "",
+  "perl" : "6.c",
+  "resources" : [ ],
+  "build-depends" : [ ],
+  "provides" : {
+    "My::Native::Call" : "lib/My/Native/Call.pm6"
+  },
+  "depends" : [
+    "LibraryMake"
+  ],
+  "description" : "blah blah blah",
+  "test-depends" : [ ],
+  "version" : "*",
+  "authors" : [
+    "yowcow"
+  ]
+}
