@@ -10,33 +10,14 @@ sub library {
     ~(%?RESOURCES{"libfoo$so"});
 }
 
-our sub calc_double(int32 --> int32)
+sub calc-double-int(int32 --> int32)
     is native(&library)
     is symbol('calc_double_int')
-    is export { * }
+    is export
+    { * }
 
-=begin pod
-
-=head1 NAME
-
-My::Native::Call - blah blah blah
-
-=head1 SYNOPSIS
-
-  use My::Native::Call;
-
-=head1 DESCRIPTION
-
-My::Native::Call is ...
-
-=head1 AUTHOR
-
-yowcow <yowcow@cpan.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2016 yowcow
-
-This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
-
-=end pod
+sub calc-double-float(num32 --> num32)
+    is native(&library)
+    is symbol('calc_double_float')
+    is export
+    { * }
