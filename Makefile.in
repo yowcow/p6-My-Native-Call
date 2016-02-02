@@ -3,7 +3,7 @@
 all: %DESTDIR%/libfoo%SO%
 
 %DESTDIR%/libfoo%SO%: src/libfoo%O%
-	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT%%DESTDIR%/libfoo%SO% src/libfoo%O%
+	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT% %DESTDIR%/libfoo%SO% src/libfoo%O%
 
 libfoo%O%: libfoo.c
 	%CC% -c %CCSHARED% %CCFLAGS% %CCOUT%libfoo%O% src/libfoo.c
