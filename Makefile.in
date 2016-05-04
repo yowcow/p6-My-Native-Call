@@ -1,15 +1,24 @@
 .PHONY: clean test
 
-all: %DESTDIR%/libfoo%SO%
+all: %DESTDIR% %DESTDIR%/libfoo%SO% %DESTDIR%/libitem%SO%
 
-%DESTDIR%/libfoo%SO%: src/libfoo%O%
-	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT% %DESTDIR%/libfoo%SO% src/libfoo%O%
+%DESTDIR%/libitem%SO%: %DESTDIR%/libitem%O%
+	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT% %DESTDIR%/libitem%SO% %DESTDIR%/libitem%O%
 
-src/libfoo%O%: src/libfoo.c
-	%CC% -c %CCSHARED% %CCFLAGS% %CCOUT% src/libfoo%O% src/libfoo.c
+%DESTDIR%/libitem%O%: src/libitem.c
+	%CC% -c %CCSHARED% %CCFLAGS% %CCOUT% %DESTDIR%/libitem%O% src/libitem.c
+
+%DESTDIR%/libfoo%SO%: %DESTDIR%/libfoo%O%
+	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT% %DESTDIR%/libfoo%SO% %DESTDIR%/libfoo%O%
+
+%DESTDIR%/libfoo%O%: src/libfoo.c
+	%CC% -c %CCSHARED% %CCFLAGS% %CCOUT% %DESTDIR%/libfoo%O% src/libfoo.c
+
+%DESTDIR%:
+	mkdir %DESTDIR%
 
 test: %DESTDIR%/libfoo%SO%
 	prove t
 
 clean:
-	-rm src/libfoo%O% %DESTDIR%/libfoo%SO%
+	-rm -rf %DESTDIR%
