@@ -1,4 +1,4 @@
-.PHONY: clean
+.PHONY: clean test
 
 all: %DESTDIR%/libfoo%SO%
 
@@ -7,6 +7,9 @@ all: %DESTDIR%/libfoo%SO%
 
 src/libfoo%O%: src/libfoo.c
 	%CC% -c %CCSHARED% %CCFLAGS% %CCOUT% src/libfoo%O% src/libfoo.c
+
+test: %DESTDIR%/libfoo%SO%
+	prove t
 
 clean:
 	-rm src/libfoo%O% %DESTDIR%/libfoo%SO%
