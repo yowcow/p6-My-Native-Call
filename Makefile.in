@@ -1,6 +1,12 @@
 .PHONY: clean test
 
-all: %DESTDIR% %DESTDIR%/libfoo%SO% %DESTDIR%/libitem%SO%
+all: %DESTDIR% %DESTDIR%/libfoo%SO% %DESTDIR%/libitem%SO% %DESTDIR%/libnode%SO%
+
+%DESTDIR%/libnode%SO%: %DESTDIR%/libnode%O%
+	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT% %DESTDIR%/libnode%SO% %DESTDIR%/libnode%O%
+
+%DESTDIR%/libnode%O%: src/libnode.c
+	%CC% -c %CCSHARED% %CCFLAGS% %CCOUT% %DESTDIR%/libnode%O% src/libnode.c
 
 %DESTDIR%/libitem%SO%: %DESTDIR%/libitem%O%
 	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT% %DESTDIR%/libitem%SO% %DESTDIR%/libitem%O%
