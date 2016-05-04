@@ -3,7 +3,9 @@
   "source-url" : "",
   "perl" : "6.c",
   "resources" : [
-    "libfoo.so"
+    "libfoo.so",
+    "libitem.so",
+    "libnode.so"
   ],
   "build-depends" : [ ],
   "provides" : {
