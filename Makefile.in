@@ -1,6 +1,8 @@
 .PHONY: clean test
 
-all: %DESTDIR% %DESTDIR%/libfoo%SO% %DESTDIR%/libitem%SO% %DESTDIR%/libnode%SO%
+TARGET=%DESTDIR%/libfoo%SO% %DESTDIR%/libitem%SO% %DESTDIR%/libnode%SO%
+
+all: %DESTDIR% $(TARGET)
 
 %DESTDIR%/libnode%SO%: %DESTDIR%/libnode%O%
 	%LD% %LDSHARED% %LDFLAGS% %LIBS% %LDOUT% %DESTDIR%/libnode%SO% %DESTDIR%/libnode%O%
@@ -23,7 +25,7 @@ all: %DESTDIR% %DESTDIR%/libfoo%SO% %DESTDIR%/libitem%SO% %DESTDIR%/libnode%SO%
 %DESTDIR%:
 	mkdir %DESTDIR%
 
-test: %DESTDIR%/libfoo%SO%
+test: %DESTDIR% $(TARGET)
 	prove t
 
 clean:

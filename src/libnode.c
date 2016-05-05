@@ -32,7 +32,7 @@ Node* node_append(Node* n, char* key, char* value) {
 }
 
 void node_destroy(Node* n) {
-    printf("Freeing node (key: %s)!\n", n->key);
+    printf("Freeing node (key: %s, value: %s)!\n", n->key, n->value);
 
     free(n->key);
     free(n->value);
