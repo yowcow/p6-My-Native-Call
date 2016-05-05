@@ -8,21 +8,21 @@ has Pointer[Str] $.key;
 has Pointer[Str] $.value;
 has My::Native::Node $.next;
 
-sub library {
+my sub library {
     state $so;
     if !$so { $so = get-vars('')<SO> }
     ~(%?RESOURCES{"libnode$so"});
 }
 
-sub create(Str, Str --> ::?CLASS)
+my sub create(Str, Str --> ::?CLASS)
     is native(&library)
     is symbol('node_create') { * }
 
-sub append(::?CLASS, Str, Str --> ::?CLASS)
+my sub append(::?CLASS, Str, Str --> ::?CLASS)
     is native(&library)
     is symbol('node_append') { * }
 
-sub destroy(::?CLASS)
+my sub destroy(::?CLASS)
     is native(&library)
     is symbol('node_destroy') { * }
 

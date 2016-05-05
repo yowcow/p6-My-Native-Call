@@ -7,17 +7,17 @@ unit class My::Native::Item is repr('CStruct');
 has uint32       $.id;
 has Pointer[Str] $.name;
 
-sub library {
+my sub library {
     state $so;
     if !$so { $so = get-vars('')<SO> }
     ~(%?RESOURCES{"libitem$so"});
 }
 
-sub create-item(uint32, Str --> ::?CLASS)
+my sub create-item(uint32, Str --> ::?CLASS)
     is native(&library)
     is symbol('item_create') { * }
 
-sub destroy-item(::?CLASS)
+my sub destroy-item(::?CLASS)
     is native(&library)
     is symbol('item_destroy') { * }
 
